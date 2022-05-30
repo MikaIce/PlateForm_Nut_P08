@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    background-image: url("nuts-arrangement-with-copy-space.jpg");
+    background-image: url("/static/img/nuts-arrangement-with-copy-space.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
