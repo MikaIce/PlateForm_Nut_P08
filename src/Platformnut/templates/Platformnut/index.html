@@ -18,7 +18,7 @@
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' media='screen' %}" >
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
-	<!link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -62,9 +62,16 @@
 				<h1 class="lead">Bonjour, bienvenue sur la meilleur plateforme des experts en Nutella !</h1>
 				<h3 class="tagline">Aujourd'hui nous sommes le {{ date|date:"d F Y" }} </h3>
 				<h4>Il est actuellement {{ date|date:"H\hi" }}</h4>
-				<p><a class="btn btn-default btn-lg" role="button">Recherche</a>
 			</div>
-		</div>
+			<form id="search-a-substitute" action='' method="get"
+				  accept-charset="utf-8">
+					<input class="form-control basicAutoComplete" type="text" autocomplete="off"
+						   data-url=""
+						   placeholder="chercher votre produit"
+						   aria-label="Search" name="query_two">
+					<input class="submit" type="submit" value="Recherche">
+			</form>
+		</dic>
 	</header>
 	<!-- /Header -->
 
