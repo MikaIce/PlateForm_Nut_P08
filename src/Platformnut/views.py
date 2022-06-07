@@ -2,8 +2,8 @@ from datetime import datetime
 from django.shortcuts import render
 
 
-def index(request):
+def base(request):
 
     date = datetime.today()
 
-    return render(request, "Platformnut/index.html", context={"date": date})
+    return render(request, "Platformnut/base.html", context={"date": date})
