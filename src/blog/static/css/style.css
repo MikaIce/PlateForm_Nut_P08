@@ -15,12 +15,20 @@ h1, h2, h3, h4, h5, h6{
     border: 10px solid #C45525;
     border-radius: 10px;
     width: 300px;
-    height: 300px;
+    height: 500px;
+}
+
+.portrait2{
+    background-color: white;
+    border: 10px solid #C45525;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
 }
 
 #services{
     color: white;
-    background-color: #DE9440;
+    background-color: #345A61;
 }
 
 footer{

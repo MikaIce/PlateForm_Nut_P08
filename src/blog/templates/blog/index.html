@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'blog/base.html' %}
 {% load static %}
 {% block title %}Accueil{% endblock %}
 {% block content %}
@@ -25,7 +25,7 @@
             <div class="col-lg-8 align-self-baseline">
                 <h2 class="text-white font-weight-light mb-5">Trouvez un produit de substitution
                     pour ceux que vous consommez tous les jours</h2>
-                <form class="input-group" action="{% url 'core:search' %}" method="get">
+                <form class="input-group" action="{% static url 'blog/search' %}" method="get">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Produit" name="query">
                         <div class="input-group-append">
@@ -42,20 +42,30 @@
     <div class="container">
         <h2 class="text-center mt-0">Colette et Rémy</h2>
         <hr class="divider my-4" />
-        <p><strong>Pur Beurre</strong> est l'initiative de deux amoureux de la gastronomie française, Colette Tatou et Rémy, que vous avez déjà certainement rencontrés dans notre excellent restaurant Ratatouille. </p>
-        <p><strong>Colette Tatou</strong> : "Nous aimons tous manger, surtout en France ! Personnellement, une baguette fraîche, du bon fromage de chèvre et un bon vin rouge me suffisent amplement. Comme tout le monde, je fais mes courses au supermarché. Mais petit à petit je me suis rendue compte, surtout lorsque nous avons ouvert le restaurant, que je pouvais remplacer les produits aseptisés que j'avais l'habitude d'acheter par de bons produits du terroir Et souvent pour le même prix !"</p>
-        <p><strong>Remy</strong> : "Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup me balader, surtout dans les caves et les cuisines. Je connaissais par coeur le contenu des boutiques bio (dont je raffole) ainsi que les ingrédients de tous les aliments vendus. Lorsque Colette m'a demandé si elle pouvait remplacer son Nutella matinal par un aliment plus sain, je savais tout de suite où le trouver. L'idée de Pur Beurre était née !"</p>
+        <p><strong>Pur Beurre</strong> est l'initiative de deux amoureux de la gastronomie française, Colette Tatou et
+            Rémy, que vous avez déjà certainement rencontrés dans notre excellent restaurant Ratatouille.
+        </p>
         <div class="row">
             <div class="col-md-6 text-center">
                 <div class="mt-5">
-                    <img class="portrait" src="{% static 'img/colette-tatou-full.png' %}" alt="Colette Tatou">
-                    <h3 class="h4 my-2">Colette</h3>
+                    <img class="portrait" src="{% static 'assets/colette-tatou-full.png' %}" alt="Colette Tatou">
+                    <h3 class="h4 my-2">Colette Tatou</h3>
+                    <p> "Nous aimons tous manger, surtout en France ! Personnellement, une baguette fraîche, du bon fromage de chèvre et
+                        un bon vin rouge me suffisent amplement. Comme tout le monde, je fais mes courses au supermarché. Mais petit à petit je me suis rendue compte, surtout lorsque
+                        nous avons ouvert le restaurant, que je pouvais remplacer les produits aseptisés que j'avais l'habitude d'acheter
+                        par de bons produits du terroir Et souvent pour le même prix !"
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 text-center">
                 <div class="mt-5">
-                    <img class="portrait" src="{% static 'img/ratatouille-portrait.jpg' %}" alt="Rémy">
+                    <img class="portrait2" src="{% static 'assets/ratatouille-portrait.jpg' %}" alt="Rémy">
                     <h3 class="h4 my-2">Rémy</h3>
+                    <p>"Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup me balader,
+                        surtout dans les caves et les cuisines. Je connaissais par coeur le contenu des boutiques bio (dont je raffole)
+                        ainsi que les ingrédients de tous les aliments vendus. Lorsque Colette m'a demandé si elle pouvait remplacer
+                        son Nutella matinal par un aliment plus sain, je savais tout de suite où le trouver. L'idée de Pur Beurre était née !"
+                    </p>
                 </div>
             </div>
         </div>
