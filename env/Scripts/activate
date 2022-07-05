@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\users\mikaice\documents\cours\p08\plateform_nut_p08\env"
+VIRTUAL_ENV="C:\Users\MikaIce\Documents\Cours\P08\PlateForm_Nut_P08\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
