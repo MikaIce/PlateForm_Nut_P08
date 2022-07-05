@@ -1,3 +1,2 @@
-.idea
-__pycache__/
-.Senv
+env/
+db.sqlite3
