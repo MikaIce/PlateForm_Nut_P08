@@ -4,10 +4,10 @@ from blog import views
 
 urlpatterns = [
     path('paginate/', views.paginate),
-    path('search/', views.search),
+    path('search/', views.search, name='search'),
     path('product/', views.product),
     path('substitute/', views.substitute),
     path('save/', views.save),
-    path('favorite/', views.favorite),
+    path('favorite/', views.favorite, name='favorite'),
     path('delete/', views.delete),
 ]

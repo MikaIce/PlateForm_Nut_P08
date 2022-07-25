@@ -1,12 +1,12 @@
-from django.contrib import admin
 from django.urls import path
-from user import views
+from . import views
 
 urlpatterns = [
-
-    path('register/', views.register),
-    path('login/', views.login),
-    path('profile/', views.profile),
-    path('logout_view/', views.logout_view),
-
+    path('register', views.register, name='register'),
+    path('login', views.LoginFormView.as_view(
+        template_name='login.html'), name='login'),
+    path('logout', views.logout_view, name='logout'),
+    path('profile', views.profile, name='profile')
 ]
+
+app_name = 'user'

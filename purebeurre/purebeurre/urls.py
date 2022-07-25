@@ -22,12 +22,19 @@ from . import views
 
 urlpatterns = [
 
-    path('index/', views.index),
-    path('legal/', views.legal),
-    path('my_404_view/', views.my_404_view),
-    path('my_500_view/', views.my_500_view),
+    path('', views.index, name='index'),
+    path('legal/', views.legal, name='legal'),
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('blog/', include('blog.urls')),
 
 ]
+
+handler404 = views.my_404_view
+handler500 = views.my_500_view
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
