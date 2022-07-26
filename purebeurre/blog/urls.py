@@ -1,13 +1,13 @@
-from django.contrib import admin
 from django.urls import path
-from blog import views
+from . import views
 
 urlpatterns = [
-    path('paginate/', views.paginate),
-    path('search/', views.search, name='search'),
-    path('product/', views.product),
-    path('substitute/', views.substitute),
-    path('save/', views.save),
-    path('favorite/', views.favorite, name='favorite'),
-    path('delete/', views.delete),
+    path('search', views.search, name='search'),
+    path('product/<int:product_id>', views.product, name='product'),
+    path('substitute/<int:product_id>', views.substitute, name='substitute'),
+    path('save/<int:product_id>/<int:prod_id>', views.save, name='save'),
+    path('favorite', views.favorite, name='favorite'),
+    path('delete/<int:fav>', views.delete, name='delete'),
 ]
+
+app_name = 'blog'

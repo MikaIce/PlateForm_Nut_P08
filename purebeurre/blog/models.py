@@ -36,7 +36,7 @@ class Category(models.Model):
 
 class Favorite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,
-                             related_name='users')
+                             related_name='user')
     sub = models.ForeignKey(Product, on_delete=models.CASCADE,
                             related_name='subs')
     prod = models.ForeignKey(Product, on_delete=models.CASCADE,

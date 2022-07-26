@@ -1,7 +1,6 @@
 from django.contrib import admin
-from blog.models import Product, Category
+from .models import Product, Category, Favorite
 
 admin.site.register(Product)
 admin.site.register(Category)
-
-# Register your models here.
+admin.site.register(Favorite)

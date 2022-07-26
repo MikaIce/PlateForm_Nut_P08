@@ -15,7 +15,7 @@ import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'user',
     'debug_toolbar',
     'crispy_forms',
+    'django_extensions',
 
 ]
 
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'purebeurre.urls'
@@ -63,7 +65,11 @@ ROOT_URLCONF = 'purebeurre.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates',
+                 'templates/purbeurre',
+                 'templates/blog',
+                 'templates/user'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,7 +135,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 if os.environ.get('ENV') == 'PRODUCTION':
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -137,9 +143,10 @@ else:
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, ""),
     )
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_URL = 'user/login'
+LOGIN_URL = '/user/login'
 
 LOGIN_REDIRECT_URL = '/'
 

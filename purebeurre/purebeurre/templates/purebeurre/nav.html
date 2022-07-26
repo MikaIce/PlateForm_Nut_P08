@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
                 <li class="nav-item">
-                    <form class="input-group mt-2" action="{% url 'search' %}" method="get">
+                    <form class="input-group mt-2" action="{% url 'blog:search' %}" method="get">
                         <input type="text" class="form-control" placeholder="Chercher" name="query">
                     </form>
                 </li>
@@ -17,7 +17,7 @@
                     <li class="nav-item mt-3"><a class="nav-link js-scroll-trigger" href="{% url 'user:profile' %}">
                         <i class="fas fa-user fa-2x ml-2" title="Mon profil"></i>
                     </a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'favorite' %}" title="Mes favoris">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'blog:favorite' %}" title="Mes favoris">
                         {% include 'purebeurre/carrot.svg' %}
                     </a></li>
                     <li class="nav-item mt-3"><a class="nav-link js-scroll-trigger" href="{% url 'user:logout' %}">
