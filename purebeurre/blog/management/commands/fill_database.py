@@ -24,6 +24,9 @@ class Command(BaseCommand):
             res = requests.get("https://fr.openfoodfacts.org/cgi/search.pl?",
                                params=payload)
             result = res.json()
+            print('==================================')
+            print(result)
+            print('------------------------')
             products = result["products"]
             for i in products:
                 # avoid products with missing data

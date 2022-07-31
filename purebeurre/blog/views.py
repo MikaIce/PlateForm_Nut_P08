@@ -41,7 +41,7 @@ def search(request):
 
         context = {'page_obj': paginate(request, products, 9),
                    'query': query}
-        return render(request, 'core/search.html', context)
+        return render(request, 'blog/search.html', context)
 
     else:
         messages.success(request, "Vous n'avez rien saisi")
@@ -52,7 +52,7 @@ def product(request, product_id):
     """ Display the product's information """
     prod = Product.objects.get(id=product_id)
     context = {'prod': prod}
-    return render(request, 'core/product.html', context)
+    return render(request, 'blog/product.html', context)
 
 
 def substitute(request, product_id):
@@ -68,7 +68,7 @@ def substitute(request, product_id):
     sub_list.remove(prod)
     context = {'prod': prod,
                'page_obj': paginate(request, sub_list, 9)}
-    return render(request, 'core/substitute.html', context)
+    return render(request, 'blog/substitute.html', context)
 
 
 @login_required
