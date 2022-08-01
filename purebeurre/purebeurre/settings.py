@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'django-insecure-(f+ms9^531kqai1a0_o)+3$&6zio54m(21gi=^-xqe2jz@ts9%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'purebeurre',
-    'blog',
-    'user',
+    'blog.apps.BlogConfig',
+    'user.apps.UserConfig',
     'debug_toolbar',
     'crispy_forms',
     'django_extensions',
+    'purebeurre.settings',
 
 ]
 
@@ -66,7 +66,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates',
-                 'templates/purbeurre',
                  'templates/blog',
                  'templates/user'
         ],
