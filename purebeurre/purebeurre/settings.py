@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import django_sites
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -22,7 +23,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(f+ms9^531kqai1a0_o)+3$&6zio54m(21gi=^-xqe2jz@ts9%'
+SECRET_KEY ='django-insecure-(f+ms9^531kqai1a0_o)+3$&6zio54m(21gi=^-xqe2jz@ts9%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -33,18 +34,19 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'purebeurre.settings',
+    'blog.apps.BlogConfig',
+    'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',
-    'user.apps.UserConfig',
     'debug_toolbar',
-    'crispy_forms',
     'django_extensions',
-    'purebeurre.settings',
+    'crispy_forms',
+
 
 ]
 
@@ -60,15 +62,17 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+INTERNAL_IPS = ['127.0.0.1']
+
 ROOT_URLCONF = 'purebeurre.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates',
+                 'templates/purebeurre',
                  'templates/blog',
-                 'templates/user'
-        ],
+                 'templates/user'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,8 +93,12 @@ WSGI_APPLICATION = 'purebeurre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 if os.environ.get('ENV') == 'PRODUCTION':
@@ -105,16 +113,20 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.'
+                'password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.'
+                'password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.'
+                'password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.'
+                'password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -122,11 +134,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-FR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
+
+USE_L10N = True
 
 USE_TZ = True
 
@@ -137,7 +151,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 if os.environ.get('ENV') == 'PRODUCTION':
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 else:
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, ""),
