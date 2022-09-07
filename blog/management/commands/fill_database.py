@@ -13,7 +13,8 @@ class Command(BaseCommand):
         # Chosen categories
         name = ["Pâtes à tartiner aux noisettes et au cacao",
                 "Muffins", "Biscuits", "Tortellini", "Viennoiseries",
-                "Taboulés", "Confitures", "Cassoulets", "Yaourts", "Sodas"]
+                "Taboulés", "Confitures", "Cassoulets", "Yaourts", "Sodas",
+                "Cracotte", "Carotte"]
         for element in name:
             self.stdout.write('Import de la catégorie {}'.format(element))
             cat = Category.objects.create(name=element)
