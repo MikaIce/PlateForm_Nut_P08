@@ -26,12 +26,13 @@ SECRET_KEY = '0p*k3^j@jg38vs#s&9xmvjvy&vln54l)o_+g-j)tl-ua*9h2tu'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'user.apps.UserConfig',
     'blog.apps.BlogConfig',
     'django.contrib.admin',
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'purebeurre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'root',
@@ -103,7 +104,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-
+WHITENOISE_USE_FINDERS = True
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -152,6 +153,8 @@ else:
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, "static"),
     )
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
