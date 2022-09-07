@@ -30,7 +30,7 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'user/profile.html')
+    return render(request, 'profile.html')
 
 class LoginFormView(SuccessMessageMixin, LoginView):
     """ Add a welcome message when user logs in """
