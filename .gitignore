@@ -1,2 +1,4 @@
 .idea
 env
+.pytest_cache
+pytest.ini
