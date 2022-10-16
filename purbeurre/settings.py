@@ -34,8 +34,9 @@ ALLOWED_HOSTS = ['purbeurnut.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'users.apps.UserConfig',
-    'core.apps.ProductConfig',
+    'whitenoise.runserver_nostatic',
+    'users.apps.UsersConfig',
+    'core.apps.CoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -101,7 +102,7 @@ DATABASES = {
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
     db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+    DATABASES['default'].update(db_from_env)
 else:
     DEBUG = True
 
