@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'purbeurre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'purbeurre',
         'USER': '',
         'PASSWORD': '',
@@ -102,7 +102,7 @@ DATABASES = {
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
     db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 else:
     DEBUG = True
 
