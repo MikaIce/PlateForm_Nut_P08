@@ -95,8 +95,8 @@ DATABASES = {
         'NAME': 'purbeurre',
         'USER': 'postgres',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': '',
+        'PORT': '',
     }
 }
 if os.environ.get('ENV') == 'PRODUCTION':
