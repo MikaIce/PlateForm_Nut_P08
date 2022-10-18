@@ -11,16 +11,15 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # Chosen categories
-        name = [
-                'petit-dejeuners', 'plats-prepares',
-                'snacks-sales', 'biscuits-et-gateaux',
-                'snacks-sucres', 'produits-laitiers',
-                'epicerie', 'desserts', 'charcuteries',
-                'cereales-et-derives', 'boissons', 'fromages',
-                'fruits', 'soupes',
-                'pizzas-tartes-salees-et-quiches',
-                'bieres', 'pates-a-tartiner',
-                'boissons-chaudes', 'graines', 'biscuits'
+        name = ['plats-prepares',
+                                  'snacks-sales', 'biscuits-et-gateaux',
+                                  'snacks-sucres', 'produits-laitiers',
+                                  'epicerie', 'desserts', 'charcuteries',
+                                  'cereales-et-derives', 'boissons', 'fromages',
+                                  'fruits', 'soupes',
+                                  'pizzas-tartes-salees-et-quiches',
+                                  'bieres', 'pates-a-tartiner',
+                                  'boissons-chaudes', 'graines', 'biscuits'
                 ]
         for element in name:
             self.stdout.write('Import de la catégorie {}'.format(element))
