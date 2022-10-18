@@ -15,7 +15,7 @@ class Command(BaseCommand):
                                   'snacks-sales', 'biscuits-et-gateaux',
                                   'snacks-sucres', 'produits-laitiers',
                                   'epicerie', 'desserts', 'charcuteries',
-                                  'cereales-et-derives', 'boissons', 'fromages',
+                                  'cereales-et-derives', 'fromages',
                                   'fruits', 'soupes',
                                   'pizzas-tartes-salees-et-quiches',
                                   'bieres', 'pates-a-tartiner',
