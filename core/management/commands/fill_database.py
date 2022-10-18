@@ -11,11 +11,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # Chosen categories
-        name = ['plats-prepares',
-                                  'snacks-sales', 'biscuits-et-gateaux',
-                                  'snacks-sucres', 'produits-laitiers',
-                                  'epicerie', 'desserts', 'charcuteries',
-                                  'cereales-et-derives', 'fromages',
+        name = [
+                                  'fromages',
                                   'fruits', 'soupes',
                                   'pizzas-tartes-salees-et-quiches',
                                   'bieres', 'pates-a-tartiner',
