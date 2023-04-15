@@ -36,8 +36,7 @@ class Command(BaseCommand):
             result = res.json()
             products = result["products"]
             for i in products:
-                # avoid products with missing data
-                try:
+                # avoid products with missing data   try:
                     with transaction.atomic():
                         if i.get("product_name", False) and\
                                 i.get("brands", False) and \
@@ -50,12 +49,13 @@ class Command(BaseCommand):
                                 nutriscore=i["nutrition_grades"],
                                 image=i["image_front_url"],
                                 fat=i["nutriments"].get("fat_100g"),
-                                saturated_fat=i["nutriments"].get["saturated-fat_100g"],
-                                sugars=i["nutriments"].get["sugars_100g"],
-                                salt=i["nutriments"].get["salt_100g"], )
+                                saturated_fat=i["nutriments"].get("saturated-fat_100g"),
+                                sugars=i["nutriments"].get("sugars_100g"),
+                                salt=i["nutriments"].get("salt_100g"), )
                             cat.products.add(product)
 
                 except IntegrityError:
                     pass
 
         self.stdout.write('Base de données remplie avec succès')
+
