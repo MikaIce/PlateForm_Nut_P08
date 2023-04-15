@@ -36,7 +36,7 @@ class Command(BaseCommand):
             result = res.json()
             products = result["products"]
             for i in products:
-                # avoid products with missing data   try:
+                try:
                     with transaction.atomic():
                         if i.get("product_name", False) and\
                                 i.get("brands", False) and \
@@ -53,7 +53,6 @@ class Command(BaseCommand):
                                 sugars=i["nutriments"].get("sugars_100g"),
                                 salt=i["nutriments"].get("salt_100g"), )
                             cat.products.add(product)
-
                 except IntegrityError:
                     pass
 
