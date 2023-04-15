@@ -71,7 +71,7 @@ class TestProduct(TestCase):
         response = self.client.get(reverse('core:substitute',
                                            args=[sub_id]))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'core/substitute.html')
+        self.assertTemplateUsed(response, 'substitute.html')
 
     def test_save_logged_in_view(self):
         user = User.objects.first()

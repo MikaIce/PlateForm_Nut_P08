@@ -49,11 +49,10 @@ class Command(BaseCommand):
                                 link=i["url"],
                                 nutriscore=i["nutrition_grades"],
                                 image=i["image_front_url"],
-                                fat=i["nutriments"]["fat_100g"],
-                                saturated_fat=i["nutriments"]
-                                ["saturated-fat_100g"],
-                                sugars=i["nutriments"]["sugars_100g"],
-                                salt=i["nutriments"]["salt_100g"], )
+                                fat=i["nutriments"].get("fat_100g"),
+                                saturated_fat=i["nutriments"].get["saturated-fat_100g"],
+                                sugars=i["nutriments"].get["sugars_100g"],
+                                salt=i["nutriments"].get["salt_100g"], )
                             cat.products.add(product)
 
                 except IntegrityError:
