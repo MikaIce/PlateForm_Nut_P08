@@ -1,15 +1,21 @@
 language: python
 python:
-  - "3.10"
-dist: focal
-
-before_script:
-  - pip install -r requirements.txt
-
-env: DJANGO_SETTINGS_MODULE="settings.travis"
+  - 3.10
 
 services:
   - postgresql
+
+addons:
+  postgresql: "13"
+
+env:
+  - DJANGO_SETTINGS_MODULE="settings.travis"
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+
+install:
+  - pip install -r requirements.txt
 
 script:
   - python manage.py test
