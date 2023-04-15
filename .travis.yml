@@ -2,6 +2,9 @@ language: python
 python:
   - 3.10
 
+os: linux
+dist: focal
+
 services:
   - postgresql
 
@@ -19,3 +22,4 @@ install:
 
 script:
   - python manage.py test
+
