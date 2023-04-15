@@ -1,4 +1,4 @@
-from .settings import *
+from purbeurre.settings import *
 
 # Paramètres spécifiques à l'environnement Travis CI
 DATABASES = {
